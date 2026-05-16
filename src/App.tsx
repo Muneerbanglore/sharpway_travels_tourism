@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { 
   Plane, Hotel, MapPin, Phone, Mail, 
-  Compass, Globe, ShieldCheck, Star, FileCheck, UserCheck, 
+  Globe, ShieldCheck, Star, FileCheck, UserCheck, 
   BookOpen, Moon, Coins, FileDigit, Fingerprint, Map, Car, ArrowRight,
-  MessageCircle, Award, Sparkles,
+  Award, Sparkles,
   Check, Menu, X, Share2
 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
@@ -152,18 +152,41 @@ const Navbar = () => {
 
 // --- Minimalist Hero ---
 const Hero = () => {
+  const [currentBg, setCurrentBg] = useState(0);
+  const heroBgs = [
+    '/assets/hero_dubai_skyline.png',
+    '/assets/hero_tropical_paradise.png',
+    '/assets/hero_majestic_mountains.png',
+    '/assets/hero_private_jet_interior.png'
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % heroBgs.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="home" className="relative h-screen flex flex-col justify-start pt-32 overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <motion.img 
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 10, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
-          src="/assets/hero_dubai_flight.png" 
-          alt="Dubai Luxury Travel" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/20" />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentBg}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <img 
+              src={heroBgs[currentBg]} 
+              className="w-full h-full object-cover"
+              alt="Luxury Travel Experience"
+            />
+          </motion.div>
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-black/30 z-10" />
       </div>
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6">
@@ -191,39 +214,50 @@ const Hero = () => {
       {/* Bottom Content Card */}
       <motion.div 
         initial={{ x: 100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1, ease: "easeOut" }}
-        viewport={{ once: true }}
-        className="absolute bottom-0 right-0 w-full md:w-1/2 lg:w-1/3 bg-white p-12 rounded-tl-[5rem] shadow-2xl z-20"
-      >
-        <motion.h3 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5 }}
-          className="text-xl font-bold text-brand-primary mb-4 uppercase tracking-widest"
-        >
-          Your Gateway to Luxury Travel
-        </motion.h3>
-        <motion.p 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 1.7 }}
-          className="text-slate-600 text-lg leading-relaxed mb-8"
-        >
-          Crafting unique travel experiences designed exclusively for you. Whether it's a luxurious getaway, an adventurous trek, or a spiritual pilgrimage, we ensure every detail is meticulously planned.
-        </motion.p>
-        <motion.a 
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.9 }}
-          href="https://wa.me/971564279281" 
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 bg-brand-primary text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-sm hover:scale-105 transition-transform"
-        >
-          Explore Now <ArrowRight className="w-5 h-5" />
-        </motion.a>
-      </motion.div>
+      <div className="container mx-auto px-6 pt-32 pb-48 relative z-10">
+          <div className="max-w-4xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-8"
+            >
+              <img src="/logo.png" alt="Sharp Way Logo" className="h-16 md:h-24 w-auto mb-6 drop-shadow-2xl" />
+            </motion.div>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-6xl md:text-9xl font-black text-white leading-[0.85] tracking-tighter uppercase drop-shadow-2xl"
+            >
+              Beyond the <br /> <span className="text-brand-accent">Horizon</span>
+            </motion.h1>
+          </div>
+        </div>
+      </section>
+
+      {/* --- Intro Section --- */}
+      <section className="bg-white relative z-20 -mt-24 rounded-t-[4rem] md:rounded-t-[8rem] shadow-2xl">
+        <div className="container mx-auto px-8 md:px-20 py-24 md:py-40">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-6xl font-black text-brand-primary mb-12 leading-[1.1] tracking-tighter uppercase">
+                Your Gateway to <br /> <span className="text-brand-accent">Luxury Travel</span>
+              </h2>
+              <p className="text-gray-600 text-lg md:text-xl leading-relaxed md:leading-loose mb-12 font-medium">
+                Crafting unique travel experiences designed exclusively for you. 
+                Whether it's a luxurious getaway, an adventurous trek, or a spiritual pilgrimage, 
+                we ensure every detail is meticulously planned.
+              </p>
+              <button className="bg-brand-primary text-white px-12 py-6 rounded-2xl font-black tracking-widest transition-all hover:scale-105 shadow-xl flex items-center gap-4 group">
+                EXPLORE NOW <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+              </button>
+            </motion.div>
+          </div>
+        </div>
     </section>
   );
 };
@@ -249,7 +283,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-24 bg-brand-primary">
+    <section id="services" className="py-24 md:py-40 bg-brand-primary">
       <div className="max-w-[1400px] mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
           <div className="max-w-2xl">
@@ -328,7 +362,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 md:py-40 bg-white">
       <div className="max-w-[1400px] mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="editorial-label text-brand-accent">The Sharpway Advantage</span>
@@ -391,7 +425,7 @@ const PromotionalAds = () => {
   }, []);
 
   return (
-    <section id="offers" className="py-24 bg-white relative overflow-hidden">
+    <section id="services" className="py-24 md:py-40 bg-gray-50 overflow-hidden relative">
       <div className="max-w-[1400px] mx-auto px-6">
         <div className="bg-brand-primary rounded-[3rem] overflow-hidden shadow-2xl relative min-h-[600px] flex flex-col lg:flex-row">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-secondary/20 to-transparent pointer-events-none" />
@@ -460,7 +494,7 @@ const PromotionalAds = () => {
 // --- Contact Section with Dual Maps ---
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 bg-brand-primary relative overflow-hidden">
+    <section id="contact" className="py-24 md:py-40 bg-brand-primary relative overflow-hidden">
       <div className="noise-overlay" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,112,243,0.1),transparent_70%)] pointer-events-none" />
       
