@@ -157,7 +157,13 @@ const Hero = () => {
     '/assets/hero_dubai_skyline.png',
     '/assets/hero_tropical_paradise.png',
     '/assets/hero_majestic_mountains.png',
-    '/assets/hero_private_jet_interior.png'
+    '/assets/hero_private_jet_interior.png',
+    '/assets/hero_paris_eiffel.png',
+    '/assets/hero_swiss_alps.png',
+    '/assets/hero_yacht_dubai.png',
+    '/assets/hero_santorini.png',
+    '/assets/hero_taj_mahal.png',
+    '/assets/hero_safari.png'
   ];
 
   useEffect(() => {
@@ -168,7 +174,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative h-screen flex flex-col justify-start pt-32 overflow-hidden">
+    <section id="home" className="relative h-screen flex flex-col justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
           <motion.div
@@ -186,11 +192,11 @@ const Hero = () => {
             />
           </motion.div>
         </AnimatePresence>
-        <div className="absolute inset-0 bg-black/30 z-10" />
+        <div className="absolute inset-0 bg-black/40 z-10" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6">
-        <div className="max-w-5xl pt-10 md:pt-0">
+      <div className="relative z-20 w-full max-w-[1400px] mx-auto px-6">
+        <div className="max-w-5xl">
           <motion.img 
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -203,61 +209,59 @@ const Hero = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="heading-xl drop-shadow-2xl"
+            className="text-6xl md:text-[10rem] font-black text-white leading-[0.85] tracking-tighter uppercase drop-shadow-2xl"
           >
             Beyond the <br />
-            Horizon
+            <span className="text-brand-accent">Horizon</span>
           </motion.h1>
         </div>
       </div>
+    </section>
+  );
+};
 
-      {/* Bottom Content Card */}
-      <motion.div 
-        initial={{ x: 100, opacity: 0 }}
-      <div className="container mx-auto px-6 pt-32 pb-48 relative z-10">
-          <div className="max-w-4xl">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mb-8"
+const Intro = () => {
+  return (
+    <section className="bg-white relative z-30 -mt-24 rounded-t-[4rem] md:rounded-t-[8rem] shadow-2xl">
+      <div className="container mx-auto px-8 md:px-20 py-24 md:py-40">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="editorial-label text-brand-accent mb-4 block">About Sharpway</span>
+            <h2 className="text-4xl md:text-6xl font-black text-brand-primary mb-12 leading-[1.1] tracking-tighter uppercase">
+              Your Gateway to <br /> <span className="text-brand-accent">Luxury Travel</span>
+            </h2>
+            <p className="text-gray-600 text-lg md:text-xl leading-relaxed md:leading-loose mb-12 font-medium">
+              Crafting unique travel experiences designed exclusively for you. 
+              Whether it's a luxurious getaway, an adventurous trek, or a spiritual pilgrimage, 
+              we ensure every detail is meticulously planned.
+            </p>
+            <a 
+              href="https://wa.me/971564279281"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex bg-brand-primary text-white px-12 py-6 rounded-2xl font-black tracking-widest transition-all hover:scale-105 shadow-xl items-center gap-4 group"
             >
-              <img src="/logo.png" alt="Sharp Way Logo" className="h-16 md:h-24 w-auto mb-6 drop-shadow-2xl" />
-            </motion.div>
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-6xl md:text-9xl font-black text-white leading-[0.85] tracking-tighter uppercase drop-shadow-2xl"
-            >
-              Beyond the <br /> <span className="text-brand-accent">Horizon</span>
-            </motion.h1>
-          </div>
+              EXPLORE NOW <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+            </a>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative hidden lg:block"
+          >
+            <img src="/assets/adventure.png" alt="Luxury Travel" className="rounded-[3rem] shadow-2xl" />
+            <div className="absolute -bottom-10 -left-10 bg-brand-accent p-10 rounded-[2rem] shadow-xl gold-glow">
+              <p className="text-brand-primary font-black text-4xl">15+</p>
+              <p className="text-brand-primary/80 font-bold text-sm uppercase tracking-widest">Years of Excellence</p>
+            </div>
+          </motion.div>
         </div>
-      </section>
-
-      {/* --- Intro Section --- */}
-      <section className="bg-white relative z-20 -mt-24 rounded-t-[4rem] md:rounded-t-[8rem] shadow-2xl">
-        <div className="container mx-auto px-8 md:px-20 py-24 md:py-40">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl md:text-6xl font-black text-brand-primary mb-12 leading-[1.1] tracking-tighter uppercase">
-                Your Gateway to <br /> <span className="text-brand-accent">Luxury Travel</span>
-              </h2>
-              <p className="text-gray-600 text-lg md:text-xl leading-relaxed md:leading-loose mb-12 font-medium">
-                Crafting unique travel experiences designed exclusively for you. 
-                Whether it's a luxurious getaway, an adventurous trek, or a spiritual pilgrimage, 
-                we ensure every detail is meticulously planned.
-              </p>
-              <button className="bg-brand-primary text-white px-12 py-6 rounded-2xl font-black tracking-widest transition-all hover:scale-105 shadow-xl flex items-center gap-4 group">
-                EXPLORE NOW <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-              </button>
-            </motion.div>
-          </div>
-        </div>
+      </div>
     </section>
   );
 };
@@ -491,6 +495,133 @@ const PromotionalAds = () => {
   );
 };
 
+// --- Top Destinations Section ---
+const Destinations = () => {
+  const [activeTab, setActiveTab] = useState<'dubai' | 'global'>('dubai');
+
+  const destinations = {
+    dubai: [
+      {
+        title: 'Burj Khalifa',
+        location: 'Downtown Dubai, UAE',
+        desc: 'The world\'s tallest architectural masterpiece, rising elegantly above Dubai.',
+        image: '/assets/dubai_burj_khalifa.png',
+        badge: 'Iconic Wonder'
+      },
+      {
+        title: 'Palm Jumeirah',
+        location: 'Jumeirah Coast, Dubai',
+        desc: 'A monumental man-made archipelago symbolizing engineering marvel and elite living.',
+        image: '/assets/dubai_palm_jumeirah.png',
+        badge: 'Luxury Living'
+      },
+      {
+        title: 'Dubai Marina',
+        location: 'Marina District, Dubai',
+        desc: 'Dazzling skyscrapers framing pristine water canals with luxury mega yachts.',
+        image: '/assets/hero_yacht_dubai.png',
+        badge: 'Waterfront Elite'
+      }
+    ],
+    global: [
+      {
+        title: 'Eiffel Tower',
+        location: 'Paris, France',
+        desc: 'An eternal icon of art and romance, casting golden glows over the Seine.',
+        image: '/assets/hero_paris_eiffel.png',
+        badge: 'Cultural Landmark'
+      },
+      {
+        title: 'Swiss Alps',
+        location: 'Zermatt, Switzerland',
+        desc: 'Majestic snow-clad peaks surrounding exclusive mountain retreats and winter wonderlands.',
+        image: '/assets/hero_swiss_alps.png',
+        badge: 'Alpine Escape'
+      },
+      {
+        title: 'Santorini Caldera',
+        location: 'Cyclades, Greece',
+        desc: 'Stunning blue-domed architectural marvels perched on volcanic cliffs overlooking the Aegean.',
+        image: '/assets/hero_santorini.png',
+        badge: 'Island Paradise'
+      }
+    ]
+  };
+
+  return (
+    <section id="destinations" className="py-24 md:py-40 bg-slate-50 relative overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-10 mb-20">
+          <div className="max-w-2xl">
+            <span className="editorial-label text-brand-accent">Curated Destinations</span>
+            <h2 className="heading-lg text-brand-primary mb-6">Top Places <br />to Explore</h2>
+            <p className="text-premium text-slate-500">Uncover the world’s most coveted locales, from Dubai's gravity-defying architecture to iconic wonders across continents.</p>
+          </div>
+          
+          <div className="flex bg-slate-200/60 p-1.5 rounded-2xl gap-2 shadow-inner border border-slate-300/30">
+            <button 
+              onClick={() => setActiveTab('dubai')}
+              className={`px-8 py-4 rounded-xl text-sm font-black uppercase tracking-wider transition-all duration-300 ${activeTab === 'dubai' ? 'bg-brand-primary text-white shadow-lg' : 'text-slate-600 hover:text-slate-900'}`}
+            >
+              Iconic Dubai
+            </button>
+            <button 
+              onClick={() => setActiveTab('global')}
+              className={`px-8 py-4 rounded-xl text-sm font-black uppercase tracking-wider transition-all duration-300 ${activeTab === 'global' ? 'bg-brand-primary text-white shadow-lg' : 'text-slate-600 hover:text-slate-900'}`}
+            >
+              Global Wonders
+            </button>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="wait">
+            {destinations[activeTab].map((item, index) => (
+              <motion.div 
+                key={`${activeTab}-${index}`}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+                className="premium-card p-0 rounded-[2.5rem] overflow-hidden group shadow-xl hover:shadow-2xl transition-all duration-500 bg-white border border-slate-100/80"
+              >
+                <div className="relative h-[280px] overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={item.title} 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80" />
+                  <span className="absolute top-6 left-6 text-[10px] font-black uppercase tracking-[0.2em] text-brand-primary bg-brand-accent px-4 py-2 rounded-full shadow-lg font-display select-none">
+                    {item.badge}
+                  </span>
+                </div>
+                <div className="p-8 flex flex-col justify-between h-[220px]">
+                  <div>
+                    <span className="text-[11px] font-black text-brand-accent uppercase tracking-widest block mb-2">{item.location}</span>
+                    <h3 className="text-2xl font-black text-brand-primary mb-3 tracking-tighter uppercase font-display">{item.title}</h3>
+                    <p className="text-sm font-medium text-slate-500 leading-relaxed line-clamp-3">{item.desc}</p>
+                  </div>
+                  <a 
+                    href={`https://wa.me/971564279281?text=I'm%20interested%20in%20visiting%20${encodeURIComponent(item.title)}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-brand-primary font-black text-sm uppercase tracking-[0.2em] group-hover:text-brand-accent transition-colors duration-300 w-fit"
+                  >
+                    <span>Inquire Destination</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // --- Contact Section with Dual Maps ---
 const Contact = () => {
   return (
@@ -536,7 +667,7 @@ const Contact = () => {
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="mt-2 w-2 h-2 rounded-full bg-brand-accent" />
-                    <p className="text-white/70 text-lg leading-relaxed"><span className="text-white font-black block mb-1 uppercase tracking-tighter text-sm">Connect</span>+971 52 607 0011 <br /> Near Al Wahda Mall</p>
+                    <p className="text-white/70 text-lg leading-relaxed"><span className="text-white font-black block mb-1 uppercase tracking-tighter text-sm">Connect</span>+971 52 607 0011 <br /> Calicut Restaurant Building, Near Al Wahda Mall</p>
                   </div>
                 </div>
               </div>
@@ -572,7 +703,7 @@ const Contact = () => {
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="mt-2 w-2 h-2 rounded-full bg-brand-accent" />
-                    <p className="text-white/70 text-lg leading-relaxed"><span className="text-white font-black block mb-1 uppercase tracking-tighter text-sm">Location</span>Calicut Rahmath Restaurant Building, Kerala, India</p>
+                    <p className="text-white/70 text-lg leading-relaxed"><span className="text-white font-black block mb-1 uppercase tracking-tighter text-sm">Location</span>Oyoor, Kollam, Kerala, India</p>
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="mt-2 w-2 h-2 rounded-full bg-brand-accent" />
@@ -582,7 +713,7 @@ const Contact = () => {
               </div>
               <div className="relative h-[350px] mt-auto">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.8351543666276!2d75.7831264!3d11.2424847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba659999496f8c7%3A0x6b876b876b876b87!2sCalicut%20Rahmath%20Hotel!5e0!3m2!1sen!2sin!4v1715865600000!5m2!1sen!2sin" 
+                  src="https://maps.google.com/maps?q=Oyoor,%20Kollam,%20Kerala,%20India&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                   className="absolute inset-0 w-full h-full border-none opacity-90 hover:opacity-100 transition-opacity duration-500"
                   loading="lazy" 
                   title="Kerala Office Map"
@@ -695,6 +826,7 @@ function App() {
       <SEOStructuredData />
       <Navbar />
       <Hero />
+      <Intro />
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -712,12 +844,20 @@ function App() {
         <WhyChooseUs />
       </motion.div>
       <motion.div 
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
         <PromotionalAds />
+      </motion.div>
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <Destinations />
       </motion.div>
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
