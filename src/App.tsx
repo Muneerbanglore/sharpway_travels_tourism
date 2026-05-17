@@ -521,6 +521,55 @@ const Destinations = () => {
         desc: 'Dazzling skyscrapers framing pristine water canals with luxury mega yachts.',
         image: '/assets/hero_yacht_dubai.png',
         badge: 'Waterfront Elite'
+      },
+      {
+        title: 'Burj Al Arab',
+        location: 'Jumeirah Beach, Dubai',
+        desc: 'The legendary sail-shaped luxury hotel, symbolizing high-end hospitality.',
+        image: '/assets/dubai_burj_al_arab.png',
+        badge: '7-Star Luxury'
+      },
+      {
+        title: 'Museum of the Future',
+        location: 'Sheikh Zayed Rd, Dubai',
+        desc: 'A futuristic architectural masterpiece showcasing revolutionary designs and technology.',
+        image: '/assets/dubai_museum_of_future.png',
+        badge: 'Futuristic Design'
+      },
+      {
+        title: 'Desert Dunes Safari',
+        location: 'Al Lahbab Desert, Dubai',
+        desc: 'Vibrant golden sand dune adventures followed by high-end private desert camps under the stars.',
+        image: '/assets/dubai_desert_safari.png',
+        badge: 'Heritage & Adventure'
+      },
+      {
+        title: 'Dubai Frame',
+        location: 'Zabeel Park, Dubai',
+        desc: 'A magnificent golden structure framing panoramic views of old and new Dubai.',
+        image: '/assets/hero_dubai_skyline.png',
+        badge: 'Panoramic Skyline'
+      },
+      {
+        title: 'Jumeirah Beach',
+        location: 'Jumeirah District, Dubai',
+        desc: 'Pristine white sand shoreline with crystalline azure waters, ideal for beachside dining.',
+        image: '/assets/hero_tropical_paradise.png',
+        badge: 'Coastal Paradise'
+      },
+      {
+        title: 'Private Jet Concierge',
+        location: 'Al Maktoum Airport, Dubai',
+        desc: 'Seamless luxury air travel experiences custom-designed to match your schedule.',
+        image: '/assets/hero_private_jet_interior.png',
+        badge: 'Elite Flight'
+      },
+      {
+        title: 'Dubai Miracle Garden',
+        location: 'Dubailand, Dubai',
+        desc: 'A breathtaking botanical oasis featuring over 150 million blooming flowers in artistic arrays.',
+        image: '/assets/hero_majestic_mountains.png',
+        badge: 'Botanical Oasis'
       }
     ],
     global: [
@@ -544,6 +593,55 @@ const Destinations = () => {
         desc: 'Stunning blue-domed architectural marvels perched on volcanic cliffs overlooking the Aegean.',
         image: '/assets/hero_santorini.png',
         badge: 'Island Paradise'
+      },
+      {
+        title: 'Taj Mahal',
+        location: 'Agra, India',
+        desc: 'The ultimate symbol of eternal love, crafted perfectly in majestic white marble.',
+        image: '/assets/hero_taj_mahal.png',
+        badge: 'Historic Monument'
+      },
+      {
+        title: 'Serengeti Safari',
+        location: 'Serengeti, Tanzania',
+        desc: 'Witness the boundless wildlife migration across the plains from premium hot air balloons.',
+        image: '/assets/hero_safari.png',
+        badge: 'Wilderness Escape'
+      },
+      {
+        title: 'The Colosseum',
+        location: 'Rome, Italy',
+        desc: 'The historic, grand amphitheater representing the heart of ancient Rome\'s architectural genius.',
+        image: '/assets/global_colosseum.png',
+        badge: 'Historic Arena'
+      },
+      {
+        title: 'Giza Pyramids',
+        location: 'Cairo, Egypt',
+        desc: 'Witness the mysterious and majestic tombs of ancient pharaohs standing tall across millennia.',
+        image: '/assets/global_pyramids.png',
+        badge: 'Ancient Eternity'
+      },
+      {
+        title: 'Machu Picchu',
+        location: 'Andes Mountains, Peru',
+        desc: 'The dramatic, mist-shrouded Inca citadel perched high in the majestic Peruvian mountain tops.',
+        image: '/assets/global_machu_picchu.png',
+        badge: 'Lost Civilization'
+      },
+      {
+        title: 'Luxury Yacht Voyager',
+        location: 'Mediterranean Sea',
+        desc: 'Sail through pristine Mediterranean shores on a fully-catered elite private vessel.',
+        image: '/assets/hero_yacht_dubai.png',
+        badge: 'Nautical Elite'
+      },
+      {
+        title: 'Tropical Overwaters',
+        location: 'Maldives Islands',
+        desc: 'Unwind in ultra-luxury water villas with crystal clear private lagoons and sandy shores.',
+        image: '/assets/hero_tropical_paradise.png',
+        badge: 'Elite Seclusion'
       }
     ]
   };
